@@ -22,12 +22,7 @@ public class ChildDeserializer extends StdDeserializer<Child> {
 
     @Override
     public Child deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
-        Json.mapper().getRegisteredModuleIds()
-                .stream().forEach(e ->
-                System.out.println("--------------- " + e));
-
-
-        JsonNode node = jp.readValueAsTree(); //(jp);
+        JsonNode node = jp.readValueAsTree();
         String updatedBy = node.get("updatedBy").asText();
         Long updatedAt = node.get("updatedAt").asLong();
 
